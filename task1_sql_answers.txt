@@ -1,0 +1,129 @@
+--- Question 1 ---
+How many books borrowed by every member?
+ member_id first_name last_name  total_books_borrowed
+      1001      Salma   Ibrahim                     1
+      1002      Fares     Saleh                     2
+      1003     Bassel    Hegazy                     9
+      1005    Youssef     Halim                     3
+      1006      Layla   Mansour                     1
+      1007     Sherif     Fouad                     3
+      1008       Ziad     Saleh                    19
+      1009     Hassan     Saleh                     1
+      1010       Nour     Nabil                    18
+      1011      Menna     Halim                     2
+      1013       Ziad     Fouad                     2
+      1014     Habiba     Nabil                     1
+      1015      Hamza     Sabry                     3
+      1016       Dina    Rashad                     7
+      1017       Adam      Badr                     2
+      1018      Ahmed    Shafik                    17
+      1019    Mostafa     Wahba                     3
+      1020       Rana     Fouad                     7
+      1022    Youssef     Fouad                     6
+      1023     Hassan    Rashad                     1
+      1024    Youssef    Hegazy                    17
+      1026       Nada     Saleh                     3
+      1027    Mostafa     Fouad                    18
+      1028     Hassan      Adel                     3
+      1030       Reem     Osman                    16
+      1031        Ali     Fahmy                     1
+      1032       Nada      Zaki                     6
+      1034        Aya     Wahba                    25
+      1035      Karim     Fahmy                     1
+      1036       Lina      Zaki                     1
+      1037      Retaj     Kamel                     2
+      1039       Nada      Riad                     2
+      1040       Dina      Adel                     2
+      1041       Nada    Rashad                     2
+      1044     Sherif     Saleh                    21
+      1046       Amir     Fouad                     1
+      1047       Sara    Rashad                    16
+      1049      Ahmed     Gamal                     1
+      1050      Fares      Adel                    11
+      1052      Retaj      Adel                     1
+      1053       Adam    Shafik                     5
+      1054      Retaj     Fahmy                     6
+      1055    Mostafa     Kamel                     2
+      1057      Ahmed     Fahmy                    10
+      1058       Lina   Mansour                     3
+      1059       Lina     Halim                     7
+      1060      Layla     Wahba                     2
+      1061       Ziad     Fahmy                     8
+      1062      Tarek      Adel                     7
+      1065       Adam     Fahmy                    17
+      1067        Aya   Ibrahim                     3
+      1068      Layla    Hegazy                     6
+      1070      Ahmed      Zaki                     3
+      1071       Jana    Hegazy                     2
+      1072       Seif      Zaki                    14
+      1073     Yassin     Kamel                     2
+      1074    Mostafa     Saleh                     2
+      1075      Malak     Fahmy                     9
+      1076       Dina     Wahba                     7
+      1077       Lina    Rashad                     6
+      1079       Rana     Osman                    10
+      1080     Bassel     Wahba                     2
+
+==================================================
+
+--- Question 2 ---
+Author his name starts with M:
+                title         author
+ Storms and Sailboats  Mahmoud Rafei
+The Clockwork Orchard  Mahmoud Rafei
+ Notes from the Delta Mona Kholoussy
+    The Glass Beehive Mona Kholoussy
+
+==================================================
+
+--- Question 3 ---
+Top 5 books borrowed:
+ book_id                  title  borrow_count
+     501        The Silver Kite            57
+     507  Fossils and Fireflies            55
+     513 Circuits for Beginners            46
+     519       Kites Over Cairo            38
+     525   Storms and Sailboats            25
+
+==================================================
+
+--- Question 4 ---
+Top 10 members who borrowed the most books:
+ member_id   student_name  total_books_borrowed
+      1034      Aya Wahba                    25
+      1044   Sherif Saleh                    21
+      1008     Ziad Saleh                    19
+      1010     Nour Nabil                    18
+      1027  Mostafa Fouad                    18
+      1018   Ahmed Shafik                    17
+      1024 Youssef Hegazy                    17
+      1065     Adam Fahmy                    17
+      1030     Reem Osman                    16
+      1047    Sara Rashad                    16
+
+==================================================
+
+--- Question 5 (Checkouts for Heliopolis: Rows 11 to 20) ---
+Checkouts for Heliopolis:
+selected_neighborhood  member_id  member_name              book_title checkout_date
+           Heliopolis       1044 Sherif Saleh   Fossils and Fireflies    2025-09-11
+           Heliopolis       1050   Fares Adel         The Silver Kite    2025-09-10
+           Heliopolis       1047  Sara Rashad     Marbles and Mirrors    2025-09-02
+           Heliopolis       1059   Lina Halim The Beekeeper's Almanac    2025-08-06
+           Heliopolis       1044 Sherif Saleh   Fossils and Fireflies    2025-08-05
+           Heliopolis       1047  Sara Rashad   Fossils and Fireflies    2025-08-04
+           Heliopolis       1050   Fares Adel    Storms and Sailboats    2025-07-25
+           Heliopolis       1057  Ahmed Fahmy       The Sandstone Key    2025-07-22
+           Heliopolis       1059   Lina Halim   A Garden of Equations    2025-07-09
+           Heliopolis       1047  Sara Rashad   The Robot in Row Nine    2025-07-06--- Summary of Results ---
+- Total combined checkouts: 417 records (391 from DB + 26 from Reading Kickoff web page).
+- Total dataset columns: 17 unified columns covering members, books, and checkout details.
+- All web checkouts were merged smoothly without losing or altering any database records.
+
+==================================================
+
+--- Reflection: Web Page Data vs Database ---
+Working with data from a web page is very different from querying a database:
+1. Databases have a fixed, structured schema and can be directly queried with SQL, while HTML pages are designed for display, so data is wrapped inside HTML tags.
+2. Web scraping is sensitive to layout changes; if the HTML tags or CSS classes change, the code breaks, unlike stable databases.
+3. In this task, combining both required renaming web columns (e.g., 'Member ID' to 'member_id') and handling missing values like 'return_date' to align with the main database schema.
